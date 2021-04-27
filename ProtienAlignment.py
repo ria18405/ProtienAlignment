@@ -1,7 +1,7 @@
 """
-Aligning 2 protien sequences using dynamic Programming (Needleman Wunsch)
+Aligning 2 protein sequences using dynamic Programming (Needleman Wunsch)
 using identity scoring scheme(no gap penalty)
-Output: Alignement of protein sequences and 
+Output: Alignment of protein sequences and 
 Storing the dotplot, sum matrix in csv files(',' separated)
 
 
@@ -12,7 +12,8 @@ import sys,getopt
 
 def main(argv):
 
-	inputfile = 'protein.fa'
+	inputfile = '
+	ein.fa'
 	try:
 		opts, args = getopt.getopt(argv,"hi:o:",["ifile=","ofile="])
 	except getopt.GetoptError:
@@ -23,7 +24,7 @@ def main(argv):
 			inputfile = arg
 
 			
-	#Step0: extracting data of 2 protien sequences from a fasta file
+	#Step0: extracting data of 2 protein sequences from a fasta file
 
 	seq=[]
 	w=open(inputfile)
@@ -31,12 +32,12 @@ def main(argv):
 		if(line[:1]!='>' and line!='\n'):
 			seq.append(line[:-1]);
 
-	print("PROTIEN SEQUENCES BEFORE ALLIGNMENT\n")	
+	print("PROTEIN SEQUENCES BEFORE ALLIGNMENT\n")	
 	print(seq[0])
 	print(seq[1],"\n")
 
 
-	#Step1: Making a dotplot of the 2 protien sequences
+	#Step1: Making a dotplot of the 2 protein sequences
 
 	w=len(seq[0])
 	h=len(seq[1])
@@ -92,7 +93,7 @@ def main(argv):
 	print(df_sum)
 	df_sum.to_csv('sum_matrix_output.csv')
 
-	#Step3: backtracing and finding the required allignment by introducing gaps
+	#Step3: backtracking and finding the required allignment by introducing gaps
 
 	diag=0
 	first_seq_allign=''
@@ -145,7 +146,7 @@ def main(argv):
 
 
 	#The final best possible allignments of 2 sequences are:
-	print("\nPROTIEN SEQUENCES AFTER ALLIGNMENT\n")
+	print("\nPROTEIN SEQUENCES AFTER ALLIGNMENT\n")
 	print(first_seq_allign)
 	print(sec_seq_allign)
 
