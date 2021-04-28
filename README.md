@@ -1,4 +1,4 @@
-#### PROTIEN ALIGNMENT ALGORITHM
+#### PROTEIN ALIGNMENT ALGORITHM
 
 * **Python script:​** ProtienAlignment.py
 
@@ -26,7 +26,7 @@
 		We try to find running options and arguments and save them in ​ opts, args​ . If
 		the command returns an error, we output the correct format of the
 		command and exit. Else, the option is read, if option is ​ -i​ , that is input file follows, we assign the arg to input file.
-		We open the input file, for each line in file, if the line starts with ‘​> ’ ​ symbol and is not a blank line, we add that line to the list ​ seq[]. seq[0] a ​ nd s ​ eq[1]​ gives the original sequences to be aligned. Actually, we are converting a sequence stored in the FASTA file to string data type.
+		We open the input file, for each line in file, if the line starts with ‘​> ’ ​ symbol and is not a blank line, we add that line to the list ​ seq[]. seq[0] and s ​ eq[1]​ gives the original sequences to be aligned. Actually, we are converting a sequence stored in the FASTA file to string data type.
 
 	- Step1: Creating the dotplot-
 
@@ -34,7 +34,7 @@
 		Now we iterate over each cell, and check corresponding elements of the sequence strings. If both the elements are same (match), we place 1, else
 		(mismatch) we place a 0 in that cell .Converting the dotplot​ into dataframe and loading to csv file-
 		We create two lists, named ​ colnames​ having elements of sequence string 1
-		at each index, similarly ​ rownames​ , having elements of sequence string 2.Then we create a dataframe​ ​df​ with elements of r ​ ownames​ as index and
+		at each index, similarly ​ rownames​ , having elements of sequence string 2.Then we create a dataframe​ ​df​ with elements of rownames​ as index and
 		elements of ​ colnames​ as columns and load the 1,0 values from dotplot
 		created earlier.
 		To put the dataframe into a csv file named d
@@ -44,7 +44,7 @@
 
 	- Step2: Making a sum matrix and loading it into a csv file-
 
-		We make a copy of dotplot named s ​ um_matrix​ using ​ deepcopy​ (so that
+		We make a copy of dotplot named sum_matrix​ using ​ deepcopy​ (so that
 		changes in ​ sum_matrix​ are not reflected in dotplot​ ), next we fill in the
 		sum_matrix.​ As the last column and last row are always same as that of
 		dotplot​ , we start out iteration from index len(sequence)-2 to index (-1)
@@ -66,5 +66,5 @@
 		first_seq_allign​ and s ​ ec_seq_allign​ . Following the above conditions, reach the end of the matrix.
 		The final alignments using Needleman Wunsh algorithm (with 0 gap
 		penalty) are given by first_seq_allign and sec_seq_allign.
-		The final outcome (optimal alignments) are dispayed on the terminal, along
+		The final outcome (optimal alignments) are displayed on the terminal, along
 		with a dotplot and matrix of sums.
